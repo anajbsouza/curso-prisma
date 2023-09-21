@@ -5,5 +5,5 @@ export const postSchema = Joi.object<CreatePost>({
   username: Joi.string().required(),
   title: Joi.string().required(),
   content: Joi.string().required(),
-  createdAt: Joi.date(),
+  createdAt: Joi.date()
 })

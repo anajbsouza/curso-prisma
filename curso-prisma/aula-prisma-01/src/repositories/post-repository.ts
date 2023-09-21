@@ -22,10 +22,10 @@ async function getPost(id: number) {
 }
 
 async function createPost(post: CreatePost) {
-  const { createdAt, username, title, body } = post;
+  const { username, title, content, createdAt } = post;
   const result = await db.query<Post>(`
-    INSERT INTO ${TABLE_NAME} (createdAt, username, title, body) VALUES ($1, $2, $3)
-  `, [createdAt, username, title, body]);
+    INSERT INTO ${TABLE_NAME} (username, title, content, createdAt) VALUES ($1, $2, $3, $4)
+  `, [username, title, content, createdAt ? createdAt : new Date()]);
 
   return result.rowCount;
 }

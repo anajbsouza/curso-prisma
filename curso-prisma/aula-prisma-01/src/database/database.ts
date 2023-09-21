@@ -6,15 +6,15 @@ dotenv.config();
 const { Pool } = pg;
 
 const {
-  HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_DATABASE
+  localhost, 5432: number, admin, admin123, prisma1
 } = process.env;
 
 const db = new Pool({
-  host: HOST,
-  port: parseInt(DB_PORT),
-  user: DB_USER,
-  password: DB_PASSWORD,
-  database: DB_DATABASE
+  host: localhost,
+  port: parseInt('5432'),
+  user: admin,
+  password: admin123,
+  database: prisma1
 });
 
 export default db;
