@@ -7,6 +7,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
-// model posts {
-// }
+model posts {
+  id        Int       @id @default(autoincrement())
+  username  String
+  title     String
+  content   String
+  createdAt DateTime? @db.Date
+}

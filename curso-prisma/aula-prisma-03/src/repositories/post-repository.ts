@@ -1,10 +1,7 @@
 import { Post } from "@prisma/client";
 import prisma from "../database/database";
-import db from "../database/database";
 
-const TABLE_NAME = "posts";
-
-export type CreatePost = Omit<Post, "id">
+export type CreatePost = Omit<Post, "id" | "createdAt">
 
 async function getPosts() {
   const result = await prisma.post.findMany()
